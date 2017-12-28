@@ -1,0 +1,24 @@
+<div class="modal">
+  <span class="close" (click)="closeBox()">&times;</span>
+  <h3>Voeg een nieuw team toe:</h3>
+  <form [formGroup]="myForm" (ngSubmit)="voegToe()">
+
+    <div class="form">
+      <div class="input">
+        <label>Naam</label>
+        <input type="text" formControlName="name">
+        <small [hidden]="myForm.controls.name.valid || (myForm.controls.name.pristine && !submitted)">
+          Name is required (minimum 5 characters).
+        </small>
+      </div>
+      <div class="input">
+        <label>URL afbeelding</label>
+        <input type="text" formControlName="imageUrl">
+      </div>
+
+    </div>
+
+    <button class="submit" type="submit">Submit</button>
+
+  </form>
+</div>

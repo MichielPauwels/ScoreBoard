@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="header">
+    <h1>Scorebord: </h1>
+  </div>
+  <div class="body">
+    <app-teamboard *ngFor="let team of teamData; let i = index" [teamData]="team" [order]="i" (onRemove)="verwijderTeam($event)"></app-teamboard>
+    <button *ngIf="!addTeam && init" (click)="newTeam()">+</button>
+  </div>
+  <button *ngIf="init" (click)="startGame()">Start</button>
+  <div class="endRound" *ngIf="!init">
+    <button (click)="reset()">Reset</button>
+    <button (click)="endRound()">Einde Ronde {{round}}</button>
+  </div>
+
+</div>
+
+<app-add-team *ngIf="addTeam" (onSubmit)="voegTeamToe($event)" (close)="addTeam = false"></app-add-team>
+<app-add-scores *ngIf="newScore" [teams]="teamData" (onSubmit)="voegScoresToe($event)" (close)="newScore = false"></app-add-scores>

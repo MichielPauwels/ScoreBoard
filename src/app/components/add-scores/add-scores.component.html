@@ -1,0 +1,17 @@
+<div class="modal">
+    <span class="close" (click)="closeBox()">&times;</span>
+    <h3>Voeg een nieuw team toe:</h3>
+    <form [formGroup]="myForm" (ngSubmit)="voegToe()">
+  
+      <div class="form">
+        <div *ngFor="let team of teams" class="input">
+          <label>{{team.name}}</label>
+          <input type="number" formControlName="{{team.name}}">
+        </div>
+  
+      </div>
+  
+      <button class="submit" type="submit">Submit</button>
+  
+    </form>
+  </div>

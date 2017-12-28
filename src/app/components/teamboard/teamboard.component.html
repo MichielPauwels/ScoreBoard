@@ -1,0 +1,9 @@
+<div class="teamBoard" [style.background]="bgcolor">
+    <button (click)="removeTeam()" class="close">X</button>
+  <h2>{{teamData.name}}</h2>
+  <img src="{{teamData.imageUrl}}">
+  <div class="scoreBoard">
+    <h4>Score: {{teamData.score}} punten</h4>
+    <div class="round" *ngFor="let score of teamData.scores; let i = index">Ronde {{i + 1}}: {{score}}</div>
+  </div>
+</div>
